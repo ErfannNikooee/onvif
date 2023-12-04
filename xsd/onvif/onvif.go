@@ -130,8 +130,8 @@ type VideoSource struct {
 }
 
 type VideoResolution struct {
-	Width  xsd.Int `xml:"onvif:Width"`
-	Height xsd.Int `xml:"onvif:Height"`
+	Width  xsd.Int `xml:"Width"`
+	Height xsd.Int `xml:"Height"`
 }
 
 type ImagingSettings struct {
@@ -341,11 +341,11 @@ type AudioOutput struct {
 	DeviceEntity
 }
 
-type Profile struct {
+type Profile struct { // TODO: Profile
 	Token                       ReferenceToken `xml:"token,attr"`
 	Fixed                       bool           `xml:"fixed,attr"`
 	Name                        Name
-	VideoSourceConfiguration    VideoSourceConfiguration
+	VideoSourceConfiguration    VideoSourceConfiguration //fix
 	AudioSourceConfiguration    AudioSourceConfiguration
 	VideoEncoderConfiguration   VideoEncoderConfiguration
 	AudioEncoderConfiguration   AudioEncoderConfiguration
@@ -358,26 +358,26 @@ type Profile struct {
 type VideoSourceConfiguration struct {
 	ConfigurationEntity
 	ViewMode    string                            `xml:"ViewMode,attr"`
-	SourceToken ReferenceToken                    `xml:"onvif:SourceToken"`
-	Bounds      IntRectangle                      `xml:"onvif:Bounds"`
-	Extension   VideoSourceConfigurationExtension `xml:"onvif:Extension"`
+	SourceToken ReferenceToken                    `xml:"SourceToken"`
+	Bounds      IntRectangle                      `xml:"Bounds"`
+	Extension   VideoSourceConfigurationExtension `xml:"Extension"`
 }
 
 type ConfigurationEntity struct {
 	Token    ReferenceToken `xml:"token,attr"`
-	Name     Name           `xml:"onvif:Name"`
-	UseCount int            `xml:"onvif:UseCount"`
+	Name     Name           `xml:"Name"`
+	UseCount int            `xml:"UseCount"`
 }
 
 type VideoSourceConfigurationExtension struct {
-	Rotate    Rotate                             `xml:"onvif:Rotate"`
-	Extension VideoSourceConfigurationExtension2 `xml:"onvif:Extension"`
+	Rotate    Rotate                             `xml:"Rotate"`
+	Extension VideoSourceConfigurationExtension2 `xml:"Extension"`
 }
 
 type Rotate struct {
-	Mode      RotateMode      `xml:"onvif:Mode"`
-	Degree    xsd.Int         `xml:"onvif:Degree"`
-	Extension RotateExtension `xml:"onvif:Extension"`
+	Mode      RotateMode      `xml:"Mode"`
+	Degree    xsd.Int         `xml:"Degree"`
+	Extension RotateExtension `xml:"Extension"`
 }
 
 type RotateMode xsd.String
@@ -385,15 +385,15 @@ type RotateMode xsd.String
 type RotateExtension xsd.AnyType
 
 type VideoSourceConfigurationExtension2 struct {
-	LensDescription  LensDescription  `xml:"onvif:LensDescription"`
-	SceneOrientation SceneOrientation `xml:"onvif:SceneOrientation"`
+	LensDescription  LensDescription  `xml:"LensDescription"`
+	SceneOrientation SceneOrientation `xml:"SceneOrientation"`
 }
 
 type LensDescription struct {
 	FocalLength float64        `xml:"FocalLength,attr"`
-	Offset      LensOffset     `xml:"onvif:Offset"`
-	Projection  LensProjection `xml:"onvif:Projection"`
-	XFactor     float64        `xml:"onvif:XFactor"`
+	Offset      LensOffset     `xml:"Offset"`
+	Projection  LensProjection `xml:"Projection"`
+	XFactor     float64        `xml:"XFactor"`
 }
 
 type LensOffset struct {
@@ -416,54 +416,54 @@ type SceneOrientationMode xsd.String
 
 type AudioSourceConfiguration struct {
 	ConfigurationEntity
-	SourceToken ReferenceToken `xml:"onvif:SourceToken"`
+	SourceToken ReferenceToken `xml:"SourceToken"`
 }
 
 type VideoEncoderConfiguration struct {
 	ConfigurationEntity
-	Encoding       VideoEncoding          `xml:"onvif:Encoding"`
-	Resolution     VideoResolution        `xml:"onvif:Resolution"`
-	Quality        float64                `xml:"onvif:Quality"`
-	RateControl    VideoRateControl       `xml:"onvif:RateControl"`
-	MPEG4          Mpeg4Configuration     `xml:"onvif:MPEG4"`
-	H264           H264Configuration      `xml:"onvif:H264"`
-	Multicast      MulticastConfiguration `xml:"onvif:Multicast"`
-	SessionTimeout xsd.Duration           `xml:"onvif:SessionTimeout"`
+	Encoding       VideoEncoding          `xml:"Encoding"`
+	Resolution     VideoResolution        `xml:"Resolution"`
+	Quality        float64                `xml:"Quality"`
+	RateControl    VideoRateControl       `xml:"RateControl"`
+	MPEG4          Mpeg4Configuration     `xml:"MPEG4"`
+	H264           H264Configuration      `xml:"H264"`
+	Multicast      MulticastConfiguration `xml:"Multicast"`
+	SessionTimeout xsd.Duration           `xml:"SessionTimeout"`
 }
 
 type VideoEncoding xsd.String
 
 type VideoRateControl struct {
-	FrameRateLimit   xsd.Int `xml:"onvif:FrameRateLimit"`
-	EncodingInterval xsd.Int `xml:"onvif:EncodingInterval"`
-	BitrateLimit     xsd.Int `xml:"onvif:BitrateLimit"`
+	FrameRateLimit   xsd.Int `xml:"FrameRateLimit"`
+	EncodingInterval xsd.Int `xml:"EncodingInterval"`
+	BitrateLimit     xsd.Int `xml:"BitrateLimit"`
 }
 
 type Mpeg4Configuration struct {
-	GovLength    xsd.Int      `xml:"onvif:GovLength"`
-	Mpeg4Profile Mpeg4Profile `xml:"onvif:Mpeg4Profile"`
+	GovLength    xsd.Int      `xml:"GovLength"`
+	Mpeg4Profile Mpeg4Profile `xml:"Mpeg4Profile"`
 }
 
 type Mpeg4Profile xsd.String
 
 type H264Configuration struct {
-	GovLength   xsd.Int     `xml:"onvif:GovLength"`
-	H264Profile H264Profile `xml:"onvif:H264Profile"`
+	GovLength   xsd.Int     `xml:"GovLength"`
+	H264Profile H264Profile `xml:"H264Profile"`
 }
 
 type H264Profile xsd.String
 
 type MulticastConfiguration struct {
-	Address   IPAddress   `xml:"onvif:Address"`
-	Port      int         `xml:"onvif:Port"`
-	TTL       int         `xml:"onvif:TTL"`
-	AutoStart xsd.Boolean `xml:"onvif:AutoStart"`
+	Address   IPAddress   `xml:"Address"`
+	Port      int         `xml:"Port"`
+	TTL       int         `xml:"TTL"`
+	AutoStart xsd.Boolean `xml:"AutoStart"`
 }
 
 type IPAddress struct {
-	Type        IPType      `xml:"onvif:Type"`
-	IPv4Address IPv4Address `xml:"onvif:IPv4Address"`
-	IPv6Address IPv6Address `xml:"onvif:IPv6Address"`
+	Type        IPType      `xml:"Type"`
+	IPv4Address IPv4Address `xml:"IPv4Address"`
+	IPv6Address IPv6Address `xml:"IPv6Address"`
 }
 
 type IPType xsd.String
@@ -476,36 +476,36 @@ type IPv6Address xsd.Token
 
 type AudioEncoderConfiguration struct {
 	ConfigurationEntity
-	Encoding       AudioEncoding          `xml:"onvif:Encoding"`
-	Bitrate        int                    `xml:"onvif:Bitrate"`
-	SampleRate     int                    `xml:"onvif:SampleRate"`
-	Multicast      MulticastConfiguration `xml:"onvif:Multicast"`
-	SessionTimeout xsd.Duration           `xml:"onvif:SessionTimeout"`
+	Encoding       AudioEncoding          `xml:"Encoding"`
+	Bitrate        int                    `xml:"Bitrate"`
+	SampleRate     int                    `xml:"SampleRate"`
+	Multicast      MulticastConfiguration `xml:"Multicast"`
+	SessionTimeout xsd.Duration           `xml:"SessionTimeout"`
 }
 
 type AudioEncoding xsd.String
 
 type VideoAnalyticsConfiguration struct {
 	ConfigurationEntity
-	AnalyticsEngineConfiguration AnalyticsEngineConfiguration `xml:"onvif:AnalyticsEngineConfiguration"`
-	RuleEngineConfiguration      RuleEngineConfiguration      `xml:"onvif:RuleEngineConfiguration"`
+	AnalyticsEngineConfiguration AnalyticsEngineConfiguration `xml:"AnalyticsEngineConfiguration"`
+	RuleEngineConfiguration      RuleEngineConfiguration      `xml:"RuleEngineConfiguration"`
 }
 
 type AnalyticsEngineConfiguration struct {
-	AnalyticsModule Config                                `xml:"onvif:AnalyticsModule"`
-	Extension       AnalyticsEngineConfigurationExtension `xml:"onvif:Extension"`
+	AnalyticsModule Config                                `xml:"AnalyticsModule"`
+	Extension       AnalyticsEngineConfigurationExtension `xml:"Extension"`
 }
 
 type Config struct {
 	Name       string    `xml:"Name,attr"`
 	Type       xsd.QName `xml:"Type,attr"`
-	Parameters ItemList  `xml:"onvif:Parameters"`
+	Parameters ItemList  `xml:"Parameters"`
 }
 
 type ItemList struct {
-	SimpleItem  SimpleItem        `xml:"onvif:SimpleItem"`
-	ElementItem ElementItem       `xml:"onvif:ElementItem"`
-	Extension   ItemListExtension `xml:"onvif:Extension"`
+	SimpleItem  []SimpleItem      `xml:"SimpleItem"`
+	ElementItem ElementItem       `xml:"ElementItem"`
+	Extension   ItemListExtension `xml:"Extension"`
 }
 
 type SimpleItem struct {
@@ -513,7 +513,7 @@ type SimpleItem struct {
 	Value xsd.AnySimpleType `xml:"Value,attr"`
 }
 
-type ElementItem struct {
+type ElementItem struct { // TODO: CallLayout, Transformation
 	Name string `xml:"Name,attr"`
 }
 
@@ -522,8 +522,8 @@ type ItemListExtension xsd.AnyType
 type AnalyticsEngineConfigurationExtension xsd.AnyType
 
 type RuleEngineConfiguration struct {
-	Rule      Config                           `xml:"onvif:Rule"`
-	Extension RuleEngineConfigurationExtension `xml:"onvif:Extension"`
+	Rule      Config                           `xml:"Rule"`
+	Extension RuleEngineConfigurationExtension `xml:"Extension"`
 }
 
 type RuleEngineConfigurationExtension xsd.AnyType
@@ -548,8 +548,8 @@ type PTZConfiguration struct {
 }
 
 type PTZSpeed struct {
-	PanTilt Vector2D `xml:"onvif:PanTilt"`
-	Zoom    Vector1D `xml:"onvif:Zoom"`
+	PanTilt Vector2D `xml:"PanTilt"`
+	Zoom    Vector1D `xml:"Zoom"`
 }
 
 type Vector2D struct {
@@ -583,14 +583,14 @@ type Space1DDescription struct {
 }
 
 type PTZConfigurationExtension struct {
-	PTControlDirection PTControlDirection         `xml:"onvif:PTControlDirection"`
-	Extension          PTZConfigurationExtension2 `xml:"onvif:Extension"`
+	PTControlDirection PTControlDirection         `xml:"PTControlDirection"`
+	Extension          PTZConfigurationExtension2 `xml:"Extension"`
 }
 
 type PTControlDirection struct {
-	EFlip     EFlip                       `xml:"onvif:EFlip"`
-	Reverse   Reverse                     `xml:"onvif:Reverse"`
-	Extension PTControlDirectionExtension `xml:"onvif:Extension"`
+	EFlip     EFlip                       `xml:"EFlip"`
+	Reverse   Reverse                     `xml:"Reverse"`
+	Extension PTControlDirectionExtension `xml:"Extension"`
 }
 
 type EFlip struct {
@@ -612,23 +612,23 @@ type PTZConfigurationExtension2 xsd.AnyType
 type MetadataConfiguration struct {
 	ConfigurationEntity
 	CompressionType              string                         `xml:"CompressionType,attr"`
-	PTZStatus                    PTZFilter                      `xml:"onvif:PTZStatus"`
-	Events                       EventSubscription              `xml:"onvif:Events"`
-	Analytics                    xsd.Boolean                    `xml:"onvif:Analytics"`
-	Multicast                    MulticastConfiguration         `xml:"onvif:Multicast"`
-	SessionTimeout               xsd.Duration                   `xml:"onvif:SessionTimeout"`
-	AnalyticsEngineConfiguration AnalyticsEngineConfiguration   `xml:"onvif:AnalyticsEngineConfiguration"`
-	Extension                    MetadataConfigurationExtension `xml:"onvif:Extension"`
+	PTZStatus                    PTZFilter                      `xml:"PTZStatus"`
+	Events                       EventSubscription              `xml:"Events"`
+	Analytics                    xsd.Boolean                    `xml:"Analytics"`
+	Multicast                    MulticastConfiguration         `xml:"Multicast"`
+	SessionTimeout               xsd.Duration                   `xml:"SessionTimeout"`
+	AnalyticsEngineConfiguration AnalyticsEngineConfiguration   `xml:"AnalyticsEngineConfiguration"`
+	Extension                    MetadataConfigurationExtension `xml:"Extension"`
 }
 
 type PTZFilter struct {
-	Status   bool `xml:"onvif:Status"`
-	Position bool `xml:"onvif:Position"`
+	Status   bool `xml:"Status"`
+	Position bool `xml:"Position"`
 }
 
 type EventSubscription struct {
-	Filter             FilterType `xml:"onvif:Filter"`
-	SubscriptionPolicy `xml:"onvif:SubscriptionPolicy"`
+	Filter             FilterType `xml:"Filter"`
+	SubscriptionPolicy `xml:"SubscriptionPolicy"`
 }
 
 type FilterType xsd.AnyType
@@ -645,9 +645,9 @@ type ProfileExtension struct {
 
 type AudioOutputConfiguration struct {
 	ConfigurationEntity
-	OutputToken ReferenceToken `xml:"onvif:OutputToken"`
-	SendPrimacy xsd.AnyURI     `xml:"onvif:SendPrimacy"`
-	OutputLevel int            `xml:"onvif:OutputLevel"`
+	OutputToken ReferenceToken `xml:"OutputToken"`
+	SendPrimacy xsd.AnyURI     `xml:"SendPrimacy"`
+	OutputLevel int            `xml:"OutputLevel"`
 }
 
 type AudioDecoderConfiguration struct {
@@ -1013,8 +1013,8 @@ type PTZPreset struct {
 }
 
 type PTZVector struct {
-	PanTilt Vector2D `xml:"onvif:PanTilt"`
-	Zoom    Vector1D `xml:"onvif:Zoom"`
+	PanTilt Vector2D `xml:"PanTilt"`
+	Zoom    Vector1D `xml:"Zoom"`
 }
 
 type PTZStatus struct {
