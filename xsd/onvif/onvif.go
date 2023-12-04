@@ -308,6 +308,18 @@ type ImagingSettingsExtension203 struct {
 	Extension        ImagingSettingsExtension204 `xml:"onvif:Extension"`
 }
 
+type ImagingStatus20 struct {
+	FocusStatus FocusStatus20
+	Extension   string `xml:"extention"`
+}
+
+type FocusStatus20 struct {
+	Position   float64    `xml:"position"`
+	MoveStatus MoveStatus `xml:"move status"`
+	Error      string     `xml:"error"`
+	Extension  string     `xml:"extention"`
+}
+
 type ToneCompensation struct {
 	Mode      string                    `xml:"onvif:Mode"`
 	Level     float64                   `xml:"onvif:Level"`
@@ -1030,7 +1042,7 @@ type PTZMoveStatus struct {
 }
 
 type MoveStatus struct {
-	Status string
+	Status string `xml:"status"`
 }
 
 type GeoLocation struct {

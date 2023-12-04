@@ -47,6 +47,10 @@ type GetStatus struct {
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
 }
 
+type GetStatusResponse struct {
+	Status onvif.FocusStatus20
+}
+
 type GetPresets struct {
 	XMLName          string               `xml:"timg:GetPresets"`
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
