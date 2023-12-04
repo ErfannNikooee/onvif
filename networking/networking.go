@@ -2,8 +2,6 @@ package networking
 
 import (
 	"bytes"
-	"io/ioutil"
-	"log"
 	"net/http"
 
 	"github.com/juju/errors"
@@ -15,7 +13,5 @@ func SendSoap(httpClient *http.Client, endpoint, message string) (*http.Response
 	if err != nil {
 		return resp, errors.Annotate(err, "Post")
 	}
-	body, _ := ioutil.ReadAll(resp.Body)
-	log.Println(string(body))
 	return resp, nil
 }
