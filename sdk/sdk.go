@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/xml"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -35,7 +36,7 @@ func ReadAndParse(ctx context.Context, httpReply *http.Response, reply interface
 	if err != nil {
 		return errors.Annotate(err, "read")
 	}
-
+	log.Println(string(b))
 	httpReply.Body.Close()
 
 	err = xml.Unmarshal(b, reply)
