@@ -32,12 +32,16 @@ type Move struct {
 	Focus            onvif.FocusMove      `xml:"timg:Focus"`
 }
 
-type MoveResponse struct {
+type MoveResponse struct { // is empty
 }
 
 type GetMoveOptions struct {
 	XMLName          string               `xml:"timg:GetMoveOptions"`
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
+}
+
+type GetMoveOptionsResponse struct {
+	MoveOptions onvif.MoveOptions20 `xml:"MoveOptions"`
 }
 
 type Stop struct {
@@ -51,7 +55,7 @@ type GetStatus struct {
 }
 
 type GetStatusResponse struct {
-	Status onvif.FocusStatus20
+	Status onvif.ImagingStatus20
 }
 
 type GetPresets struct {

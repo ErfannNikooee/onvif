@@ -309,15 +309,15 @@ type ImagingSettingsExtension203 struct {
 }
 
 type ImagingStatus20 struct {
-	FocusStatus FocusStatus20
-	Extension   string `xml:"extention"`
+	FocusStatus FocusStatus20 `xml:"FocusStatus20"`
+	Extension   string        `xml:"Extention"`
 }
 
 type FocusStatus20 struct {
-	Position   float64    `xml:"position"`
-	MoveStatus MoveStatus `xml:"move status"`
-	Error      string     `xml:"error"`
-	Extension  string     `xml:"extention"`
+	Position   float64 `xml:"Position"`
+	MoveStatus string  `xml:"MoveStatus"`
+	Error      string  `xml:"Error"`
+	Extension  string  `xml:"FocusStatus20Extension"`
 }
 
 type ToneCompensation struct {
@@ -1045,6 +1045,23 @@ type MoveStatus struct {
 	Status string `xml:"status"`
 }
 
+type MoveOptions20 struct {
+	Absolute   AbsoluteOptions20   //`xml:"onvif:AbsoluteFocusOptions"`
+	Relative   RelativeOptions20   //`xml:"onvif:RelativeOptions20"`
+	Continuous ContinuousOptions20 //`xml:"onvif:ContinuousOptions20"`
+}
+
+type AbsoluteOptions20 struct {
+	Position FloatRange `xml:"Position"`
+	Speed    FloatRange `xml:"Speed"`
+}
+type RelativeOptions20 struct {
+	Distanse FloatRange `xml:"Distance"`
+	Speed    FloatRange `xml:"Speed"`
+}
+type ContinuousOptions20 struct {
+	Speed FloatRange `xml:"Speed"`
+}
 type GeoLocation struct {
 	Lon       xsd.Double `xml:"lon,attr"`
 	Lat       xsd.Double `xml:"lat,attr"`
@@ -1857,8 +1874,8 @@ type ContinuousFocus struct {
 }
 
 type RelativeFocus struct {
-	Distance xsd.Float `xml:"onvif:Distance"`
-	Speed    xsd.Float `xml:"onvif:Speed"`
+	Distance float64 `xml:"Distance"`
+	Speed    float64 `xml:"Speed"`
 }
 
 type AbsoluteFocus struct {
