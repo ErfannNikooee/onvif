@@ -32,6 +32,24 @@ type Move struct {
 	Focus            onvif.FocusMove      `xml:"timg:Focus"`
 }
 
+type AbsoluteMove struct {
+	XMLName          string                  `xml:"timg:Move"`
+	VideoSourceToken onvif.ReferenceToken    `xml:"timg:VideoSourceToken"`
+	Focus            onvif.AbsoluteFocusMove `xml:"timg:Focus"`
+}
+
+type RelativeMove struct {
+	XMLName          string                  `xml:"timg:Move"`
+	VideoSourceToken onvif.ReferenceToken    `xml:"timg:VideoSourceToken"`
+	Focus            onvif.RelativeFocusMove `xml:"timg:Focus"`
+}
+
+type ContinuousMove struct {
+	XMLName          string                    `xml:"timg:Move"`
+	VideoSourceToken onvif.ReferenceToken      `xml:"timg:VideoSourceToken"`
+	Focus            onvif.ContinuousFocusMove `xml:"timg:Focus"`
+}
+
 type MoveResponse struct { // is empty
 }
 
@@ -48,6 +66,8 @@ type Stop struct {
 	XMLName          string               `xml:"timg:Stop"`
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
 }
+
+type StopResponse struct{}
 
 type GetStatus struct {
 	XMLName          string               `xml:"timg:GetStatus"`
@@ -72,4 +92,7 @@ type SetCurrentPreset struct {
 	XMLName          string               `xml:"timg:SetCurrentPreset"`
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
 	PresetToken      onvif.ReferenceToken `xml:"timg:PresetToken"`
+}
+
+type SetCurrentPresetResponse struct {
 }

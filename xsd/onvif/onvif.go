@@ -1864,23 +1864,35 @@ type GeoOrientation struct {
 }
 
 type FocusMove struct {
-	Absolute   AbsoluteFocus   `xml:"onvif:Absolute"`
-	Relative   RelativeFocus   `xml:"onvif:Relative"`
-	Continuous ContinuousFocus `xml:"onvif:Continuous"`
+	Absolute   AbsoluteFocus   `xml:"Absolute"`
+	Relative   RelativeFocus   `xml:"Relative"`
+	Continuous ContinuousFocus `xml:"Continuous"`
+}
+
+type AbsoluteFocusMove struct {
+	Absolute AbsoluteFocus `xml:"Absolute"`
+}
+
+type RelativeFocusMove struct {
+	Relative RelativeFocus `xml:"Relative"`
+}
+
+type ContinuousFocusMove struct {
+	Continuous ContinuousFocus `xml:"Continuous"`
 }
 
 type ContinuousFocus struct {
-	Speed xsd.Float `xml:"onvif:Speed"`
+	Speed xsd.Float `xml:"Speed"`
 }
 
 type RelativeFocus struct {
-	Distance float64 `xml:"Distance"`
-	Speed    float64 `xml:"Speed"`
+	Distance xsd.Float `xml:"Distance"`
+	Speed    xsd.Float `xml:"Speed"`
 }
 
 type AbsoluteFocus struct {
-	Position xsd.Float `xml:"onvif:Position"`
-	Speed    xsd.Float `xml:"onvif:Speed"`
+	Position xsd.Float `xml:"Position"`
+	Speed    xsd.Float `xml:"Speed"`
 }
 
 type DateTime struct {
