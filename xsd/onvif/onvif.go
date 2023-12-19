@@ -215,72 +215,72 @@ type VideoSourceExtension struct {
 }
 
 type ImagingSettings20 struct {
-	BacklightCompensation *BacklightCompensation20    `xml:"onvif:BacklightCompensation"`
-	Brightness            float64                     `xml:"onvif:Brightness,omitempty"`
-	ColorSaturation       float64                     `xml:"onvif:ColorSaturation,omitempty"`
-	Contrast              float64                     `xml:"onvif:Contrast,omitempty"`
-	Exposure              *Exposure20                 `xml:"onvif:Exposure"`
-	Focus                 *FocusConfiguration20       `xml:"onvif:Focus"`
-	IrCutFilter           *IrCutFilterMode            `xml:"onvif:IrCutFilter"`
-	Sharpness             float64                     `xml:"onvif:Sharpness,omitempty"`
-	WideDynamicRange      *WideDynamicRange20         `xml:"onvif:WideDynamicRange"`
-	WhiteBalance          *WhiteBalance20             `xml:"onvif:WhiteBalance"`
-	Extension             *ImagingSettingsExtension20 `xml:"onvif:Extension"`
+	BacklightCompensation *BacklightCompensation20    `xml:"BacklightCompensation"`
+	Brightness            float64                     `xml:"Brightness,omitempty"`
+	ColorSaturation       float64                     `xml:"ColorSaturation,omitempty"`
+	Contrast              float64                     `xml:"Contrast,omitempty"`
+	Exposure              *Exposure20                 `xml:"Exposure"`
+	Focus                 *FocusConfiguration20       `xml:"Focus"`
+	IrCutFilter           *IrCutFilterMode            `xml:"IrCutFilter"`
+	Sharpness             float64                     `xml:"Sharpness,omitempty"`
+	WideDynamicRange      *WideDynamicRange20         `xml:"WideDynamicRange"`
+	WhiteBalance          *WhiteBalance20             `xml:"WhiteBalance"`
+	Extension             *ImagingSettingsExtension20 `xml:"Extension"`
 }
 
 type BacklightCompensation20 struct {
-	Mode  BacklightCompensationMode `xml:"onvif:Mode"`
-	Level float64                   `xml:"onvif:Level"`
+	Mode  BacklightCompensationMode `xml:"Mode"`
+	Level float64                   `xml:"Level"`
 }
 
 type Exposure20 struct {
-	Mode            ExposureMode     `xml:"onvif:Mode,omitempty"`
-	Priority        ExposurePriority `xml:"onvif:Priority,omitempty"`
-	Window          Rectangle        `xml:"onvif:Window,omitempty"`
-	MinExposureTime float64          `xml:"onvif:MinExposureTime,omitempty"`
-	MaxExposureTime float64          `xml:"onvif:MaxExposureTime,omitempty"`
-	MinGain         float64          `xml:"onvif:MinGain,omitempty"`
-	MaxGain         float64          `xml:"onvif:MaxGain,omitempty"`
-	MinIris         float64          `xml:"onvif:MinIris,omitempty"`
-	MaxIris         float64          `xml:"onvif:MaxIris,omitempty"`
-	ExposureTime    float64          `xml:"onvif:ExposureTime,omitempty"`
-	Gain            float64          `xml:"onvif:Gain,omitempty"`
-	Iris            float64          `xml:"onvif:Iris,omitempty"`
+	Mode            ExposureMode     `xml:"Mode,omitempty"`
+	Priority        ExposurePriority `xml:"Priority,omitempty"`
+	Window          Rectangle        `xml:"Window,omitempty"`
+	MinExposureTime float64          `xml:"MinExposureTime,omitempty"`
+	MaxExposureTime float64          `xml:"MaxExposureTime,omitempty"`
+	MinGain         float64          `xml:"MinGain,omitempty"`
+	MaxGain         float64          `xml:"MaxGain,omitempty"`
+	MinIris         float64          `xml:"MinIris,omitempty"`
+	MaxIris         float64          `xml:"MaxIris,omitempty"`
+	ExposureTime    float64          `xml:"ExposureTime,omitempty"`
+	Gain            float64          `xml:"Gain,omitempty"`
+	Iris            float64          `xml:"Iris,omitempty"`
 }
 
 type FocusConfiguration20 struct {
-	AutoFocusMode AutoFocusMode                 `xml:"onvif:AutoFocusMode"`
-	DefaultSpeed  float64                       `xml:"onvif:DefaultSpeed"`
-	NearLimit     float64                       `xml:"onvif:NearLimit"`
-	FarLimit      float64                       `xml:"onvif:FarLimit"`
-	Extension     FocusConfiguration20Extension `xml:"onvif:Extension"`
+	AutoFocusMode AutoFocusMode                 `xml:"AutoFocusMode"`
+	DefaultSpeed  float64                       `xml:"DefaultSpeed"`
+	NearLimit     float64                       `xml:"NearLimit"`
+	FarLimit      float64                       `xml:"FarLimit"`
+	Extension     FocusConfiguration20Extension `xml:"Extension"`
 }
 
 type FocusConfiguration20Extension xsd.AnyType
 
 type WideDynamicRange20 struct {
-	Mode  WideDynamicMode `xml:"onvif:Mode"`
-	Level float64         `xml:"onvif:Level"`
+	Mode  WideDynamicMode `xml:"Mode"`
+	Level float64         `xml:"Level"`
 }
 
 type WhiteBalance20 struct {
-	Mode      WhiteBalanceMode        `xml:"onvif:Mode"`
-	CrGain    float64                 `xml:"onvif:CrGain"`
-	CbGain    float64                 `xml:"onvif:CbGain"`
-	Extension WhiteBalance20Extension `xml:"onvif:Extension"`
+	Mode      WhiteBalanceMode        `xml:"Mode"`
+	CrGain    float64                 `xml:"CrGain"`
+	CbGain    float64                 `xml:"CbGain"`
+	Extension WhiteBalance20Extension `xml:"Extension"`
 }
 
 type WhiteBalance20Extension xsd.AnyType
 
 type ImagingSettingsExtension20 struct {
-	ImageStabilization ImageStabilization          `xml:"onvif:ImageStabilization"`
-	Extension          ImagingSettingsExtension202 `xml:"onvif:Extension"`
+	ImageStabilization ImageStabilization          `xml:"ImageStabilization"`
+	Extension          ImagingSettingsExtension202 `xml:"Extension"`
 }
 
 type ImageStabilization struct {
-	Mode      ImageStabilizationMode      `xml:"onvif:Mode"`
-	Level     float64                     `xml:"onvif:Level"`
-	Extension ImageStabilizationExtension `xml:"onvif:Extension"`
+	Mode      ImageStabilizationMode      `xml:"Mode"`
+	Level     float64                     `xml:"Level"`
+	Extension ImageStabilizationExtension `xml:"Extension"`
 }
 
 type ImageStabilizationMode xsd.String
@@ -288,8 +288,8 @@ type ImageStabilizationMode xsd.String
 type ImageStabilizationExtension xsd.AnyType
 
 type ImagingSettingsExtension202 struct {
-	IrCutFilterAutoAdjustment IrCutFilterAutoAdjustment   `xml:"onvif:IrCutFilterAutoAdjustment"`
-	Extension                 ImagingSettingsExtension203 `xml:"onvif:Extension"`
+	IrCutFilterAutoAdjustment IrCutFilterAutoAdjustment   `xml:"IrCutFilterAutoAdjustment"`
+	Extension                 ImagingSettingsExtension203 `xml:"Extension"`
 }
 
 type IrCutFilterAutoAdjustment struct {
@@ -1070,34 +1070,34 @@ type GeoLocation struct {
 
 type PresetTour struct {
 	Token             ReferenceToken                 `xml:"token,attr"`
-	Name              Name                           `xml:"onvif:Name"`
-	Status            PTZPresetTourStatus            `xml:"onvif:Status"`
-	AutoStart         xsd.Boolean                    `xml:"onvif:AutoStart"`
-	StartingCondition PTZPresetTourStartingCondition `xml:"onvif:StartingCondition"`
-	TourSpot          PTZPresetTourSpot              `xml:"onvif:TourSpot"`
-	Extension         PTZPresetTourExtension         `xml:"onvif:Extension"`
+	Name              Name                           `xml:"Name"`
+	Status            PTZPresetTourStatus            `xml:"Status"`
+	AutoStart         xsd.Boolean                    `xml:"AutoStart"`
+	StartingCondition PTZPresetTourStartingCondition `xml:"StartingCondition"`
+	TourSpot          []PTZPresetTourSpot            `xml:"TourSpot"`
+	Extension         PTZPresetTourExtension         `xml:"Extension"`
 }
 
 type PTZPresetTourStatus struct {
-	State           PTZPresetTourState           `xml:"onvif:State"`
-	CurrentTourSpot PTZPresetTourSpot            `xml:"onvif:CurrentTourSpot"`
-	Extension       PTZPresetTourStatusExtension `xml:"onvif:Extension"`
+	State           PTZPresetTourState           `xml:"State"`
+	CurrentTourSpot PTZPresetTourSpot            `xml:"CurrentTourSpot"`
+	Extension       PTZPresetTourStatusExtension `xml:"Extension"`
 }
 
 type PTZPresetTourState xsd.String
 
 type PTZPresetTourSpot struct {
-	PresetDetail PTZPresetTourPresetDetail  `xml:"onvif:PresetDetail"`
-	Speed        PTZSpeed                   `xml:"onvif:Speed"`
-	StayTime     xsd.Duration               `xml:"onvif:StayTime"`
-	Extension    PTZPresetTourSpotExtension `xml:"onvif:Extension"`
+	PresetDetail PTZPresetTourPresetDetail  `xml:"PresetDetail"`
+	Speed        PTZSpeed                   `xml:"Speed"`
+	StayTime     xsd.Duration               `xml:"StayTime"`
+	Extension    PTZPresetTourSpotExtension `xml:"Extension"`
 }
 
 type PTZPresetTourPresetDetail struct {
-	PresetToken   ReferenceToken             `xml:"onvif:PresetToken"`
-	Home          xsd.Boolean                `xml:"onvif:Home"`
-	PTZPosition   PTZVector                  `xml:"onvif:PTZPosition"`
-	TypeExtension PTZPresetTourTypeExtension `xml:"onvif:TypeExtension"`
+	PresetToken   ReferenceToken             `xml:"PresetToken"`
+	Home          xsd.Boolean                `xml:"Home"`
+	PTZPosition   PTZVector                  `xml:"PTZPosition"`
+	TypeExtension PTZPresetTourTypeExtension `xml:"TypeExtension"`
 }
 
 type PTZPresetTourTypeExtension xsd.AnyType
@@ -1108,10 +1108,10 @@ type PTZPresetTourStatusExtension xsd.AnyType
 
 type PTZPresetTourStartingCondition struct {
 	RandomPresetOrder xsd.Boolean                             `xml:"RandomPresetOrder,attr"`
-	RecurringTime     xsd.Int                                 `xml:"onvif:RecurringTime"`
-	RecurringDuration xsd.Duration                            `xml:"onvif:RecurringDuration"`
-	Direction         PTZPresetTourDirection                  `xml:"onvif:Direction"`
-	Extension         PTZPresetTourStartingConditionExtension `xml:"onvif:Extension"`
+	RecurringTime     xsd.Int                                 `xml:"RecurringTime"`
+	RecurringDuration xsd.Duration                            `xml:"RecurringDuration"`
+	Direction         PTZPresetTourDirection                  `xml:"Direction"`
+	Extension         PTZPresetTourStartingConditionExtension `xml:"Extension"`
 }
 
 type PTZPresetTourDirection xsd.String

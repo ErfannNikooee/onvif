@@ -14,12 +14,19 @@ type GetImagingSettings struct {
 	VideoSourceToken onvif.ReferenceToken `xml:"timg:VideoSourceToken"`
 }
 
+type GetImagingSettingsResponse struct {
+	ImagingSettings  onvif.ImagingSettings20 `xml:"ImagingSettings"`
+	ForcePersistence xsd.Boolean             `xml:"ForcePersistence"`
+}
+
 type SetImagingSettings struct {
 	XMLName          string                  `xml:"timg:SetImagingSettings"`
 	VideoSourceToken onvif.ReferenceToken    `xml:"timg:VideoSourceToken"`
 	ImagingSettings  onvif.ImagingSettings20 `xml:"timg:ImagingSettings"`
 	ForcePersistence xsd.Boolean             `xml:"timg:ForcePersistence"`
 }
+
+type SetImagingSettingsResponse struct{}
 
 type GetOptions struct {
 	XMLName          string               `xml:"timg:GetOptions"`
